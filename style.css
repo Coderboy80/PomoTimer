@@ -35,7 +35,6 @@ body {
 
 #text-pomotimer {
   font-size: 3rem;
-  margin-top: 2rem;
 }
 
 .btns {
@@ -56,4 +55,11 @@ body {
 
 .btn:hover {
   color: black;
+}
+
+.header {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: row;
+  justify-content: center;
 }

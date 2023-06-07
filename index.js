@@ -5,6 +5,7 @@ const textSessionCount = document.getElementById("text-session-count");
 const btnStart = document.getElementById("btn-start");
 const btnReset = document.getElementById("btn-reset");
 const textSessionStatus = document.getElementById("text-status");
+const btnSettings = document.getElementById("btn-settings");
 
 let maxSessionCount = 4;
 let currentSessionCount = 0;
