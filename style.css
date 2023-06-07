@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-text-size-adjust: none; /* for iOS Safari */
+  text-size-adjust: none; /* for other mobile browsers */
+}
+
+label,
+button,
+select,
+summary,
+[type="radio"],
+[type="submit"],
+[type="checkbox"] {
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #9fc299;
+  color: white;
+  font-family: "Space Mono", monospace;
+  gap: 1rem;
+}
+
+#text-timer {
+  font-size: 8rem;
+}
+
+#text-pomotimer {
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 3rem;
+}
+
+.btn {
+  padding: 1rem;
+  font-size: 3rem;
+  background-color: #9fc299;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  color: black;
+}
