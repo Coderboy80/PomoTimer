@@ -3,11 +3,17 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Space Mono", monospace;
 }
 html {
-  -webkit-text-size-adjust: none; /* for iOS Safari */
-  text-size-adjust: none; /* for other mobile browsers */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
+
+/* MIGHT WANNA USE #9fc299 (lightgreen) LATER */
+/* TODO - 
+Use horizontal space in dialog box
+*/
 
 label,
 button,
@@ -23,9 +29,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #9fc299;
+  background-color: #292f36;
   color: white;
-  font-family: "Space Mono", monospace;
   gap: 1rem;
 }
 
@@ -47,19 +52,87 @@ body {
 .btn {
   padding: 1rem;
   font-size: 3rem;
-  background-color: #9fc299;
+  background-color: #292f36;
   color: white;
   border: none;
   border-radius: 10px;
 }
 
 .btn:hover {
-  color: black;
+  color: lightgrey;
 }
 
 .header {
+  width: 100%;
   display: flex;
   margin-top: 2rem;
-  flex-direction: row;
   justify-content: center;
+  margin-bottom: 2rem;
+}
+
+dialog {
+  position: fixed;
+  margin-top: 10px;
+  background-color: #292f36;
+  color: lightgrey;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  background-color: #292f36;
+  color: white;
+  border: none;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(0.3rem);
+  -webkit-backdrop-filter: blur(0.3rem);
+}
+
+dialog > form > button {
+  background-color: #292f36;
+  color: lightgrey;
+  font-size: 1.3rem;
+  font-family: "Space Mono", monospace;
+  border: none;
+}
+
+dialog > form > button:hover {
+  background-color: lightgrey;
+  color: #292f36;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input:focus {
+  outline: none;
+}
+
+#btn-settings {
+  font-size: 3rem;
+  border: none;
+  background-color: #292f36;
+  color: white;
+  margin-left: 70%;
 }

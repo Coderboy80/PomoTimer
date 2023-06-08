@@ -6,12 +6,20 @@ const btnStart = document.getElementById("btn-start");
 const btnReset = document.getElementById("btn-reset");
 const textSessionStatus = document.getElementById("text-status");
 const btnSettings = document.getElementById("btn-settings");
+const settingsModal = document.getElementById("modal-settings");
+const btnSubmitForm = document.getElementById("btn-submit-form");
+const inputSessionLength = document.getElementById("input-session-length");
+const inputMaxSessionCount = document.getElementById("input-max-session-count");
+const inputShortbreakLength = document.getElementById(
+  "input-short-break-length"
+);
+const inputlongBreakLength = document.getElementById("input-long-break-length");
 
 let maxSessionCount = 4;
 let currentSessionCount = 0;
 let sessionLength = 0.1;
 let shortBreakLength = 0.05;
-let LongBreakLength = 0.075;
+let longBreakLength = 0.075;
 let time = sessionLength * 60;
 let sessionStatus = "Not started";
 let currentInterval;
@@ -20,6 +28,20 @@ updateUI();
 
 btnStart.addEventListener("click", startTimer);
 btnReset.addEventListener("click", completeReset);
+btnSettings.addEventListener("click", openSettings);
+btnSubmitForm.addEventListener("click", submitForm);
+
+function openSettings() {
+  settingsModal.showModal();
+}
+
+function submitForm() {
+  sessionLength = inputSessionLength.value;
+  maxSessionCount = inputMaxSessionCount.value;
+  shortBreakLength = inputShortbreakLength.value;
+  longBreakLength = inputlongBreakLength.value;
+  completeReset();
+}
 
 function startTimer() {
   if (
@@ -59,7 +81,7 @@ function startBreak() {
   } else {
     sessionStatus = "Long break";
 
-    time = LongBreakLength * 60;
+    time = longBreakLength * 60;
   }
   currentInterval = setInterval(() => {
     time--;
@@ -76,6 +98,7 @@ function startBreak() {
 }
 
 function completeReset() {
+  console.log(sessionLength);
   currentSessionCount = 0;
   clearInterval(currentInterval);
   time = sessionLength * 60;
