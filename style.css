@@ -73,7 +73,7 @@ body {
 dialog {
   position: fixed;
   margin-top: 10px;
-  background-color: #292f36;
+  background-color: #1c2025;
   color: lightgrey;
   border: none;
   border-radius: 0.5rem;
@@ -96,6 +96,8 @@ input {
   background-color: #292f36;
   color: white;
   border: none;
+  padding: 0.5rem;
+  max-width: 100%;
 }
 
 input:focus {
@@ -120,12 +122,17 @@ dialog::backdrop {
 dialog > form > button {
   background-color: #292f36;
   color: lightgrey;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: "Space Mono", monospace;
   border: none;
 }
 
 dialog > form > button:hover {
+  color: #292f36;
+  background-color: lightgrey;
+}
+
+#btn-submit-form {
   background-color: lightgrey;
   color: #292f36;
 }
