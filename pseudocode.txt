@@ -1,0 +1,14 @@
+as soon as session or break starts, change Start button
+text into Pause
+
+if clicked on start button and the the session OR break
+is already running, then pause the timer at its current
+state and change sessionStatus to Paused and name of
+button to resume
+
+if clicked on start button and the session status is Paused
+then if a break was going on, continue break if a session
+was going on, continue session
+
+After a session or break ends, revert name of start button
+to start

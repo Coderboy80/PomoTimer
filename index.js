@@ -23,6 +23,7 @@ let longBreakLength = 0.075;
 let time = sessionLength * 60;
 let sessionStatus = "Not started";
 let currentInterval;
+let typeOfSession = "";
 
 updateUI();
 
@@ -46,14 +47,19 @@ function submitForm() {
 function startTimer() {
   if (
     sessionStatus == "Not started" ||
-    sessionStatus == "Session" ||
     sessionStatus == "Session not started"
   ) {
     startSession();
-  } else startBreak();
+  } else if (sessionStatus == "Break not started") startBreak();
+  else if (sessionStatus != "Paused") {
+    pauseTimer();
+  } else if (sessionStatus == "Paused") {
+    resumeTimer();
+  }
 }
 
 function startSession() {
+  btnStart.textContent = "Pause";
   sessionStatus = "Session";
   time = sessionLength * 60;
   updateUI();
@@ -63,6 +69,7 @@ function startSession() {
       clearInterval(currentInterval);
       sessionStatus = "Break not started";
       currentSessionCount++;
+      btnStart.textContent = "Start";
     }
 
     updateUI();
@@ -70,35 +77,35 @@ function startSession() {
 }
 
 function startBreak() {
+  btnStart.textContent = "Pause";
   if (currentSessionCount > maxSessionCount) {
     completeReset();
     return;
   }
   if (currentSessionCount < maxSessionCount) {
     sessionStatus = "Short break";
-
     time = shortBreakLength * 60;
   } else {
     sessionStatus = "Long break";
-
     time = longBreakLength * 60;
   }
   currentInterval = setInterval(() => {
     time--;
     if (time <= 0 && sessionStatus == "Long break") {
+      btnStart.textContent = "Start";
       completeReset();
     } else if (time <= 0) {
+      btnStart.textContent = "Start";
       clearInterval(currentInterval);
       sessionStatus = "Session not started";
     }
-
     updateUI();
   }, 1000);
   updateUI();
 }
 
 function completeReset() {
-  console.log(sessionLength);
+  btnStart.textContent = "Start";
   currentSessionCount = 0;
   clearInterval(currentInterval);
   time = sessionLength * 60;
@@ -112,4 +119,46 @@ function updateUI() {
   textTimer.textContent = `${minutes}:${seconds}`;
   textSessionCount.textContent = `${currentSessionCount}/${maxSessionCount}`;
   textSessionStatus.textContent = sessionStatus;
+}
+
+function pauseTimer() {
+  typeOfSession = sessionStatus;
+  sessionStatus = "Paused";
+  btnStart.textContent = "Resume";
+  clearInterval(currentInterval);
+  updateUI();
+}
+
+function resumeTimer() {
+  btnStart.textContent = "Pause";
+  if (sessionStatus === "Paused") {
+    if (typeOfSession === "Session") {
+      sessionStatus = "Session";
+    } else if (
+      typeOfSession === "Short break" ||
+      typeOfSession === "Long break"
+    ) {
+      sessionStatus = typeOfSession;
+    }
+
+    currentInterval = setInterval(() => {
+      time--;
+      if (time <= 0) {
+        clearInterval(currentInterval);
+        if (sessionStatus === "Session") {
+          sessionStatus = "Break not started";
+          currentSessionCount++;
+          btnStart.textContent = "Start";
+        } else if (sessionStatus === "Short break") {
+          btnStart.textContent = "Start";
+          sessionStatus = "Session not started";
+        } else if (sessionStatus === "Long break") {
+          btnStart.textContent = "Start";
+          completeReset();
+        }
+      }
+
+      updateUI();
+    }, 1000);
+  }
 }
