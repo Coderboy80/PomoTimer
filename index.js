@@ -17,15 +17,19 @@ const inputlongBreakLength = document.getElementById("input-long-break-length");
 
 let maxSessionCount = 4;
 let currentSessionCount = 0;
-let sessionLength = 0.1;
-let shortBreakLength = 0.05;
-let longBreakLength = 0.075;
+let sessionLength = 25;
+let shortBreakLength = 5;
+let longBreakLength = 15;
 let time = sessionLength * 60;
 let sessionStatus = "Not started";
 let currentInterval;
 let typeOfSession = "";
 
 updateUI();
+
+const sound = new Howl({
+  src: ["sound.wav"],
+});
 
 btnStart.addEventListener("click", startTimer);
 btnReset.addEventListener("click", completeReset);
@@ -66,6 +70,7 @@ function startSession() {
   currentInterval = setInterval(() => {
     time--;
     if (time <= 0) {
+      sound.play();
       clearInterval(currentInterval);
       sessionStatus = "Break not started";
       currentSessionCount++;
@@ -93,8 +98,11 @@ function startBreak() {
     time--;
     if (time <= 0 && sessionStatus == "Long break") {
       btnStart.textContent = "Start";
+      sound.play();
+
       completeReset();
     } else if (time <= 0) {
+      sound.play();
       btnStart.textContent = "Start";
       clearInterval(currentInterval);
       sessionStatus = "Session not started";
@@ -136,6 +144,7 @@ function resumeTimer() {
   currentInterval = setInterval(() => {
     time--;
     if (time <= 0) {
+      sound.play();
       clearInterval(currentInterval);
       if (sessionStatus === "Session") {
         sessionStatus = "Break not started";
