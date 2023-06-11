@@ -13,6 +13,14 @@ make modal submit and cancel buttons better
   line-height: 1.5;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.5;
+}
+
 * {
   margin: 0;
   padding: 0;
