@@ -3,7 +3,7 @@
 tsParticles.load("particles-container", {
   particles: {
     number: {
-      value: 200,
+      value: 100,
     },
     size: {
       value: 1,
