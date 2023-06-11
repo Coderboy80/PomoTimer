@@ -1,5 +1,19 @@
 "use strict";
 
+tsParticles.load("particles-container", {
+  particles: {
+    number: {
+      value: 200,
+    },
+    size: {
+      value: 1,
+    },
+    move: {
+      enable: true,
+    },
+  },
+});
+
 const textTimer = document.getElementById("text-timer");
 const textSessionCount = document.getElementById("text-session-count");
 const btnStart = document.getElementById("btn-start");
