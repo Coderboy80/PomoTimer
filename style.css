@@ -8,6 +8,11 @@ settings modal should close on overlay click
 make modal submit and cancel buttons better
 
 */
+
+:root {
+  line-height: 1.5;
+}
+
 * {
   margin: 0;
   padding: 0;
