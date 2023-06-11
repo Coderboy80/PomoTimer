@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
+/* TODO - 
+
+remove start button, just should be able to click on timer text instead
+make reset button noticable
+settings modal should close on overlay click
+
+
+*/
 * {
   margin: 0;
   padding: 0;
