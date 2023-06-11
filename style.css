@@ -10,11 +10,6 @@ html {
   text-size-adjust: none;
 }
 
-/* MIGHT WANNA USE #9fc299 (lightgreen) LATER */
-/* TODO - 
-Use horizontal space in dialog box
-*/
-
 label,
 button,
 select,
@@ -63,10 +58,9 @@ body {
 }
 
 .header {
-  width: 100%;
   display: flex;
   margin-top: 2rem;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 2rem;
 }
 
@@ -142,5 +136,4 @@ dialog > form > button:hover {
   border: none;
   background-color: #292f36;
   color: white;
-  margin-left: 70%;
 }

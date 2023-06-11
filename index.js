@@ -131,34 +131,25 @@ function pauseTimer() {
 
 function resumeTimer() {
   btnStart.textContent = "Pause";
-  if (sessionStatus === "Paused") {
-    if (typeOfSession === "Session") {
-      sessionStatus = "Session";
-    } else if (
-      typeOfSession === "Short break" ||
-      typeOfSession === "Long break"
-    ) {
-      sessionStatus = typeOfSession;
+  sessionStatus = typeOfSession;
+
+  currentInterval = setInterval(() => {
+    time--;
+    if (time <= 0) {
+      clearInterval(currentInterval);
+      if (sessionStatus === "Session") {
+        sessionStatus = "Break not started";
+        currentSessionCount++;
+        btnStart.textContent = "Start";
+      } else if (sessionStatus === "Short break") {
+        btnStart.textContent = "Start";
+        sessionStatus = "Session not started";
+      } else {
+        btnStart.textContent = "Start";
+        completeReset();
+      }
     }
 
-    currentInterval = setInterval(() => {
-      time--;
-      if (time <= 0) {
-        clearInterval(currentInterval);
-        if (sessionStatus === "Session") {
-          sessionStatus = "Break not started";
-          currentSessionCount++;
-          btnStart.textContent = "Start";
-        } else if (sessionStatus === "Short break") {
-          btnStart.textContent = "Start";
-          sessionStatus = "Session not started";
-        } else if (sessionStatus === "Long break") {
-          btnStart.textContent = "Start";
-          completeReset();
-        }
-      }
-
-      updateUI();
-    }, 1000);
-  }
+    updateUI();
+  }, 1000);
 }

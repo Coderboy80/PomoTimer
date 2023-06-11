@@ -10,25 +10,25 @@
   <body>
     <div class="header">
       <h1 id="text-pomotimer">PomoTimer</h1>
-      <dialog id="modal-settings">
-        <form>
-          <label for="input-session-length">Session Length</label>
-          <input type="number" id="input-session-length" value="25" />
-          <label for="input-max-session-count">Max session count</label>
-          <input type="number" id="input-max-session-count" value="4" />
-          <label for="input-short-break-length">Short break length</label>
-          <input type="number" id="input-short-break-length" value="5" />
-          <label for="input-long-break-length">Long break length</label>
-          <input type="number" id="input-long-break-length" value="15" />
-          <button formmethod="dialog">Cancel</button>
-          <button formmethod="dialog" id="btn-submit-form">Submit</button>
-          <span
-            >Warning! Your Pomodoro timer will reset if you press submit!</span
-          >
-        </form>
-      </dialog>
-      <button id="btn-settings"><span>&#9881;</span></button>
+      <button id="btn-settings">&#9881;</button>
     </div>
+    <dialog id="modal-settings">
+      <form>
+        <label for="input-session-length">Session Length</label>
+        <input type="number" id="input-session-length" value="25" />
+        <label for="input-max-session-count">Max session count</label>
+        <input type="number" id="input-max-session-count" value="4" />
+        <label for="input-short-break-length">Short break length</label>
+        <input type="number" id="input-short-break-length" value="5" />
+        <label for="input-long-break-length">Long break length</label>
+        <input type="number" id="input-long-break-length" value="15" />
+        <button formmethod="dialog">Cancel</button>
+        <button formmethod="dialog" id="btn-submit-form">Submit</button>
+        <span
+          >Warning! Your Pomodoro timer will reset if you press submit!</span
+        >
+      </form>
+    </dialog>
 
     <h1 id="text-status">Not started</h1>
 
