@@ -3,15 +3,17 @@
 /* TODO - 
 
 remove start button, just should be able to click on timer text instead
+
 make reset button noticable
+
 settings modal should close on overlay click
+
 make modal submit and cancel buttons better
 
-*/
+add option to play lofi beats
 
-:root {
-  line-height: 1.5;
-}
+Maybe a todo list?
+*/
 
 button,
 input,
@@ -57,7 +59,9 @@ body {
   align-items: center;
   background-color: #292f36;
   color: white;
-  gap: 1rem;
+  /* height: 100%; */
+  max-height: 100%;
+  /* gap: 1rem; */
 }
 
 #text-timer {

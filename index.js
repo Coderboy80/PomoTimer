@@ -1,4 +1,6 @@
-"use strict";
+("use strict");
+
+import HackTimer from "./scripts/hacktimer/HackTimer";
 
 tsParticles.load("particles-container", {
   particles: {
